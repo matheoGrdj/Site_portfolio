@@ -1,47 +1,22 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full">
+      <img src="https://www.gravatar.com/avatar?d=mp&s=120" alt="Photo de profil"
+        class="mx-auto rounded-full mb-4 w-28 h-28 object-cover">
+      <h1 class="text-3xl font-bold text-center mb-2">Matheo Grandjean</h1>
+      <h2 class="text-xl text-center text-gray-600 mb-4">Développeur Web</h2>
+      <p class="text-gray-700 text-center mb-6">
+        Passionné par le développement web, j'aime créer des sites modernes et performants avec Vue.js et Tailwind CSS.
+        Je suis toujours à la recherche de nouveaux défis et d'opportunités pour apprendre.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="mailto:matheo@email.com" class="text-blue-600 hover:underline">Contact</a>
+        <a href="https://github.com/matheo" target="_blank" class="text-gray-800 hover:underline">GitHub</a>
+        <a href="https://linkedin.com/in/matheo" target="_blank" class="text-blue-700 hover:underline">LinkedIn</a>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
