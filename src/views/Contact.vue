@@ -1,5 +1,6 @@
 <script setup>
 import { ref, reactive } from 'vue';
+import emailjs from 'emailjs-com';
 
 // Contact form state
 const formData = reactive({
@@ -69,15 +70,20 @@ const handleSubmit = async (e) => {
     submitError.value = '';
 
     try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        // Success
+        await emailjs.send(
+            'service_f9epp1q',
+            'template_hyns275',
+            {
+                name: formData.name,
+                email: formData.email,
+                message: formData.message,
+            },
+            'EHmdNQmMvNuRzDaFY'
+        );
         isSubmitted.value = true;
         formData.name = '';
         formData.email = '';
         formData.message = '';
-
     } catch (error) {
         submitError.value = 'Une erreur est survenue. Veuillez réessayer.';
     } finally {
