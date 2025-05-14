@@ -26,16 +26,18 @@
                         <li v-for="link in navLinks" :key="link.to">
                             <router-link :to="link.to" class="hover:text-green-400 transition-colors duration-300"
                                 active-class="text-green-400">
-                                .{{ link.name }}()
+                                {{ link.name }}
                             </router-link>
                         </li>
                     </ul>
 
                     <!-- Status Badge for Desktop -->
                     <div class="bg-gray-800 px-3 py-1 rounded-full text-sm">
-                        <span class="text-yellow-400">const</span>
-                        <span class="text-blue-400">status</span> =
-                        <span class="text-green-400">"available"</span>
+                        <div class="bg-gray-800 px-3 py-1 rounded-full text-sm">
+                            <span class="text-yellow-400">const </span>
+                            <span class="text-blue-400">status </span> =
+                            <span class="text-green-400">"available"</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,8 +48,8 @@
                     <li v-for="link in navLinks" :key="link.to">
                         <router-link :to="link.to"
                             class="block hover:text-green-400 transition-colors duration-300 py-2"
-                            active-class="text-green-400">
-                            .{{ link.name }}()
+                            active-class="text-green-400" @click="isMenuOpen = false">
+                            {{ link.name }}
                         </router-link>
                     </li>
                 </ul>
@@ -55,8 +57,8 @@
                 <!-- Status Badge for Mobile -->
                 <div class="mt-4 flex justify-center">
                     <div class="bg-gray-800 px-3 py-1 rounded-full text-sm">
-                        <span class="text-yellow-400">const</span>
-                        <span class="text-blue-400">status</span> =
+                        <span class="text-yellow-400">const </span>
+                        <span class="text-blue-400">status </span> =
                         <span class="text-green-400">"available"</span>
                     </div>
                 </div>
@@ -71,9 +73,8 @@ import { ref } from 'vue'
 const isMenuOpen = ref(false)
 
 const navLinks = [
-    { name: 'home', to: '/' },
-    { name: 'projects', to: '/projects' },
-    { name: 'skills', to: '/skills' },
-    { name: 'contact', to: '/contact' }
+    { name: 'Accueil', to: '/' },
+    { name: 'Projets', to: '/projects' },
+    { name: 'Contact', to: '/contact' }
 ]
 </script>

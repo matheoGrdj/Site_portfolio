@@ -1,3 +1,9 @@
+<script setup>
+
+const year = new Date().getFullYear();
+
+</script>
+
 <template>
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4">
@@ -8,7 +14,6 @@
                         Mathéo Grandjean
                         <span class="text-green-400">/&gt;</span>
                     </p>
-                    <p class="text-sm text-gray-400">const year = new Date().getFullYear();</p>
                 </div>
 
                 <div class="flex space-x-6 items-center">
@@ -29,7 +34,7 @@
                 </div>
             </div>
             <div class="text-center mt-4 text-sm text-gray-500">
-                <code class="font-mono">console.log('Made with ❤️ and Vue.js');</code>
+                <code class="font-mono">console.log('Craft with Vue.js in {{ year }}');</code>
             </div>
         </div>
     </footer>
