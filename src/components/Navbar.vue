@@ -1,68 +1,79 @@
 <template>
-    <nav class="bg-gray-900 text-white p-4 font-mono relative">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="font-bold text-xl">
-                    <span class="text-green-400">{</span>
-                    <span class="text-blue-400">dev</span>:
-                    <span class="text-purple-400">"Mathéo Grandjean"</span>
-                    <span class="text-green-400">}</span>
+    <nav
+        class="fixed w-full top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700/50 transition-all duration-300">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="flex justify-between items-center h-14 sm:h-16">
+                <!-- Logo animé responsive -->
+                <div class="font-bold text-base sm:text-lg lg:text-xl group cursor-pointer">
+                    <span
+                        class="text-emerald-400 group-hover:scale-110 transition-transform duration-300 inline-block">{</span>
+                    <span
+                        class="text-blue-400 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">dev</span>:
+                    <span class="text-purple-400 hidden xs:inline">"Mathéo Grandjean"</span>
+                    <span class="text-purple-400 xs:hidden">"MG"</span>
+                    <span
+                        class="text-emerald-400 group-hover:scale-110 transition-transform duration-300 inline-block">}</span>
                 </div>
 
-                <!-- Menu Burger -->
-                <button @click="isMenuOpen = !isMenuOpen"
-                    class="md:hidden p-2 hover:bg-gray-800 rounded transition-colors duration-300">
-                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                        <path v-if="!isMenuOpen" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2" />
-                        <path v-else
-                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-                    </svg>
-                </button>
-
-                <!-- Desktop Navigation and Status -->
-                <div class="hidden md:flex md:items-center md:space-x-8">
-                    <ul class="flex items-center space-x-6">
-                        <li v-for="link in navLinks" :key="link.to">
-                            <router-link :to="link.to" class="hover:text-green-400 transition-colors duration-300"
-                                active-class="text-green-400">
+                <!-- Navigation desktop -->
+                <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
+                    <ul class="flex items-center space-x-3 lg:space-x-6 relative">
+                        <li v-for="link in navLinks" :key="link.to" class="relative">
+                            <router-link :to="link.to"
+                                class="relative px-2 lg:px-4 py-2 text-sm lg:text-base text-slate-300 hover:text-emerald-400 transition-all duration-300 group"
+                                active-class="text-emerald-400">
                                 {{ link.name }}
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-blue-500 group-hover:w-full transition-all duration-300"></span>
                             </router-link>
                         </li>
                     </ul>
 
-                    <!-- Status Badge for Desktop -->
-                    <div class="bg-gray-800 px-3 py-1 rounded-full text-sm">
-                        <div class="bg-gray-800 px-3 py-1 rounded-full text-sm">
-                            <span class="text-yellow-400">const </span>
-                            <span class="text-blue-400">status </span> =
-                            <span class="text-green-400">"available"</span>
+                    <!-- Status Badge responsive -->
+                    <div class="glass-effect px-2 lg:px-4 py-1 lg:py-2 rounded-full text-xs lg:text-sm">
+                        <div class="flex items-center space-x-1 lg:space-x-2">
+                            <div class="w-1.5 lg:w-2 h-1.5 lg:h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span class="text-emerald-400 hidden lg:inline">Disponible</span>
+                            <span class="text-emerald-400 lg:hidden">•</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Mobile Navigation Links -->
-            <div class="md:hidden" :class="{ 'hidden': !isMenuOpen, 'block': isMenuOpen }">
-                <ul class="flex flex-col space-y-2 items-center mt-4">
-                    <li v-for="link in navLinks" :key="link.to">
-                        <router-link :to="link.to"
-                            class="block hover:text-green-400 transition-colors duration-300 py-2"
-                            active-class="text-green-400" @click="isMenuOpen = false">
-                            {{ link.name }}
-                        </router-link>
-                    </li>
-                </ul>
-
-                <!-- Status Badge for Mobile -->
-                <div class="mt-4 flex justify-center">
-                    <div class="bg-gray-800 px-3 py-1 rounded-full text-sm">
-                        <span class="text-yellow-400">const </span>
-                        <span class="text-blue-400">status </span> =
-                        <span class="text-green-400">"available"</span>
+                <!-- Menu burger -->
+                <button @click="isMenuOpen = !isMenuOpen"
+                    class="md:hidden p-2 hover:bg-slate-800 rounded-lg transition-colors duration-300">
+                    <div class="space-y-1.5">
+                        <div class="w-5 sm:w-6 h-0.5 bg-slate-300 transition-all duration-300"
+                            :class="{ 'rotate-45 translate-y-2': isMenuOpen }"></div>
+                        <div class="w-5 sm:w-6 h-0.5 bg-slate-300 transition-all duration-300"
+                            :class="{ 'opacity-0': isMenuOpen }"></div>
+                        <div class="w-5 sm:w-6 h-0.5 bg-slate-300 transition-all duration-300"
+                            :class="{ '-rotate-45 -translate-y-2': isMenuOpen }"></div>
                     </div>
-                </div>
+                </button>
             </div>
+
+            <!-- Menu mobile -->
+            <transition name="slide-down">
+                <div v-if="isMenuOpen" class="md:hidden pb-4 pt-2">
+                    <ul class="flex flex-col space-y-3 items-center">
+                        <li v-for="link in navLinks" :key="link.to">
+                            <router-link :to="link.to"
+                                class="block text-slate-300 hover:text-emerald-400 transition-colors duration-300 py-2 px-4 rounded-lg text-center"
+                                active-class="text-emerald-400 bg-emerald-400/10" @click="isMenuOpen = false">
+                                {{ link.name }}
+                            </router-link>
+                        </li>
+                        <!-- Status mobile -->
+                        <li class="mt-2 px-4 py-2 bg-slate-800/50 rounded-full">
+                            <div class="flex items-center space-x-2 justify-center">
+                                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                                <span class="text-emerald-400 text-sm">Disponible</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </transition>
         </div>
     </nav>
 </template>
@@ -78,3 +89,41 @@ const navLinks = [
     { name: 'Contact', to: '/contact' }
 ]
 </script>
+
+<style scoped>
+.slide-down-enter-active,
+.slide-down-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-down-enter-from {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.slide-down-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Custom breakpoint pour très petits écrans */
+@media (max-width: 400px) {
+    .xs\:hidden {
+        display: none;
+    }
+
+    .xs\:inline {
+        display: inline;
+    }
+}
+
+@media (min-width: 400px) {
+    .xs\:hidden {
+        display: inline;
+    }
+
+    .xs\:inline {
+        display: none;
+    }
+}
+</style>
