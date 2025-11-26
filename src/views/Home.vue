@@ -39,8 +39,9 @@
 
                         <p
                             class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                            Étudiant passionné en 3ème année de BUT Informatique, spécialisé dans le développement
-                            web moderne et les applications mobiles.
+                            Étudiant passionné en Master of Science à Epitech Nancy après un BUT Informatique,
+                            spécialisé dans le développement web et logiciel moderne, les applications mobiles et les
+                            solutions innovantes intégrant l’intelligence artificielle.
                         </p>
 
                         <!-- Boutons d'action responsive -->
@@ -164,8 +165,8 @@
                                         </path>
                                     </svg>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-semibold mb-2 text-purple-400">BUT Informatique</h3>
-                                <p class="text-slate-300 text-sm sm:text-base">3ème année</p>
+                                <h3 class="text-lg sm:text-xl font-semibold mb-2 text-purple-400">Master of Science</h3>
+                                <p class="text-slate-300 text-sm sm:text-base">1ère année</p>
                             </div>
                         </div>
                     </div>
@@ -219,10 +220,12 @@ let isDeleting = false
 const isMobile = ref(false)
 
 const skills = ref([
-    { name: 'Vue.js / JavaScript', level: 90, icon: '🚀', description: 'Développement d\'interfaces modernes et réactives' },
-    { name: 'PHP / Symfony', level: 85, icon: '⚡', description: 'APIs robustes et applications backend' },
-    { name: 'Flutter / Dart', level: 80, icon: '📱', description: 'Applications mobiles cross-platform' },
-    { name: 'Bases de données', level: 75, icon: '💾', description: 'MySQL, PostgreSQL, MongoDB' }
+    { name: 'Vue.js / Nuxt.js', level: 95, icon: '💚', description: 'Frameworks Vue pour applications web modernes' },
+    { name: 'ReactJs / JavaScript', level: 85, icon: '⚛️', description: 'Développement d\'interfaces réactives' },
+    { name: 'PHP / Symfony / Laravel', level: 90, icon: '🐘', description: 'APIs robustes et applications backend' },
+    { name: 'Flutter / Dart', level: 65, icon: '📱', description: 'Applications mobiles cross-platform' },
+    { name: 'WinDev', level: 75, icon: '🖥️', description: 'Développement logiciel Windows' },
+    { name: 'Bases de données', level: 85, icon: '💾', description: 'MySQL, PostgreSQL, MongoDB' }
 ])
 
 const checkMobile = () => {

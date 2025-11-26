@@ -91,6 +91,93 @@
                     </div>
                 </div>
 
+                <!-- Drivup Auto-École -->
+                <div class="group relative">
+                    <div
+                        class="glass-effect rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-slate-700/50 hover:border-cyan-400/30">
+                        <div class="flex flex-col lg:flex-row gap-8">
+                            <div class="lg:w-1/3">
+                                <div class="flex items-center mb-6">
+                                    <div
+                                        class="w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            class="text-2xl font-bold text-slate-200 group-hover:text-cyan-400 transition-colors duration-300">
+                                            Drivup Auto-École
+                                        </h3>
+                                        <div class="flex flex-wrap gap-2 mt-3">
+                                            <span
+                                                class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-medium">Nuxt.js</span>
+                                            <span
+                                                class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">Netlify</span>
+                                            <span
+                                                class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium">Production</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lg:w-2/3">
+                                <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                                    Application web moderne pour l'auto-école Drivup basée à Strasbourg. Développée avec
+                                    Nuxt.js
+                                    et déployée sur Netlify, elle offre une interface intuitive pour la gestion des
+                                    cours de conduite.
+                                </p>
+
+                                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                        <span class="text-slate-400">Interface moderne</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                        <span class="text-slate-400">Framework Nuxt.js</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                                        <span class="text-slate-400">Hébergé sur Netlify</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                        <span class="text-slate-400">En production</span>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                                    <div class="flex items-center text-sm text-slate-400">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                            </path>
+                                        </svg>
+                                        Auto-école Drivup - Strasbourg
+                                    </div>
+
+                                    <a href="https://drivup.netlify.app" target="_blank"
+                                        class="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                            </path>
+                                        </svg>
+                                        <span>Visiter le site</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Crazy Charly Day -->
                 <div class="group relative">
                     <div
@@ -229,16 +316,6 @@
                                         </svg>
                                         Projet 3ème année BUT
                                     </div>
-
-                                    <a href="#"
-                                        class="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
-                                            </path>
-                                        </svg>
-                                        <span>Tester le jeu</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
