@@ -1,8 +1,8 @@
 <template>
-    <section class="py-16 px-4 md:px-6 min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/10 to-purple-900/10">
+    <section class="py-16 px-4 md:px-6 min-h-screen">
         <div class="container mx-auto max-w-6xl">
             <!-- En-tête avec animation -->
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-reveal>
                 <h1 class="text-5xl lg:text-6xl font-bold mb-6">
                     <span
                         class="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
@@ -20,7 +20,7 @@
                 <!-- Projet Tutoré -->
                 <div class="group relative">
                     <div
-                        class="glass-effect rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-slate-700/50 hover:border-emerald-400/30">
+                        class="glass-effect card-surface rounded-3xl p-8 transition-all duration-500 border border-slate-700/50 hover:border-emerald-400/30" data-reveal>
                         <div class="flex flex-col lg:flex-row gap-8">
                             <!-- Icône et titre -->
                             <div class="lg:w-1/3">
@@ -94,7 +94,7 @@
                 <!-- Drivup Auto-École -->
                 <div class="group relative">
                     <div
-                        class="glass-effect rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-slate-700/50 hover:border-cyan-400/30">
+                        class="glass-effect card-surface rounded-3xl p-8 transition-all duration-500 border border-slate-700/50 hover:border-cyan-400/30" data-reveal>
                         <div class="flex flex-col lg:flex-row gap-8">
                             <div class="lg:w-1/3">
                                 <div class="flex items-center mb-6">
@@ -181,7 +181,7 @@
                 <!-- Crazy Charly Day -->
                 <div class="group relative">
                     <div
-                        class="glass-effect rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-slate-700/50 hover:border-orange-400/30">
+                        class="glass-effect card-surface rounded-3xl p-8 transition-all duration-500 border border-slate-700/50 hover:border-orange-400/30" data-reveal>
                         <div class="flex flex-col lg:flex-row gap-8">
                             <div class="lg:w-1/3">
                                 <div class="flex items-center mb-6">
@@ -250,7 +250,7 @@
                 <!-- Tic Tac Toe -->
                 <div class="group relative">
                     <div
-                        class="glass-effect rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-slate-700/50 hover:border-green-400/30">
+                        class="glass-effect card-surface rounded-3xl p-8 transition-all duration-500 border border-slate-700/50 hover:border-green-400/30" data-reveal>
                         <div class="flex flex-col lg:flex-row gap-8">
                             <div class="lg:w-1/3">
                                 <div class="flex items-center mb-6">
@@ -325,7 +325,7 @@
                 <!-- Application de Stage -->
                 <div class="group relative">
                     <div
-                        class="glass-effect rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 border border-slate-700/50 hover:border-blue-400/30">
+                        class="glass-effect card-surface rounded-3xl p-8 transition-all duration-500 border border-slate-700/50 hover:border-blue-400/30" data-reveal>
                         <div class="flex flex-col lg:flex-row gap-8">
                             <div class="lg:w-1/3">
                                 <div class="flex items-center mb-6">
@@ -396,7 +396,7 @@
                 <!-- Section GitHub -->
                 <div class="text-center mt-16">
                     <div
-                        class="glass-effect rounded-3xl p-12 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500">
+                        class="glass-effect card-surface rounded-3xl p-12 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500" data-reveal>
                         <div class="max-w-3xl mx-auto">
                             <div class="flex justify-center mb-6">
                                 <div

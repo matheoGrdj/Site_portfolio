@@ -3,12 +3,12 @@
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6">
             <!-- Background animé -->
-            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/20 to-purple-900/20"></div>
+            <div class="absolute inset-0 hero-backdrop"></div>
 
             <!-- Particules flottantes responsive -->
             <div class="absolute inset-0">
-                <div v-for="i in (isMobile ? 20 : 50)" :key="i"
-                    class="absolute w-1 h-1 bg-emerald-400/30 rounded-full animate-float" :style="{
+                <div v-for="i in (isMobile ? 16 : 32)" :key="i"
+                    class="absolute w-1 h-1 rounded-full hero-particle animate-float" :style="{
                         left: Math.random() * 100 + '%',
                         top: Math.random() * 100 + '%',
                         animationDelay: Math.random() * 5 + 's',
@@ -20,7 +20,7 @@
             <div class="container mx-auto relative z-10 max-w-7xl">
                 <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <!-- Contenu principal -->
-                    <div class="space-y-6 lg:space-y-8 text-center lg:text-left">
+                    <div class="space-y-6 lg:space-y-8 text-center lg:text-left" data-reveal>
                         <div class="space-y-3 lg:space-y-4">
                             <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                                 <span class="block text-slate-200">Salut, je suis</span>
@@ -63,7 +63,7 @@
                         <!-- Réseaux sociaux -->
                         <div class="flex space-x-4 sm:space-x-6 justify-center lg:justify-start">
                             <a href="https://github.com/matheoGrdj" target="_blank"
-                                class="p-2 sm:p-3 bg-slate-800/50 rounded-full hover:bg-emerald-500 transition-all duration-300 group">
+                                class="p-2 sm:p-3 surface-soft rounded-full hover:bg-emerald-500 transition-all duration-300 group">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -71,7 +71,7 @@
                                 </svg>
                             </a>
                             <a href="https://www.linkedin.com/in/mathéo-grandjean-36353a271/" target="_blank"
-                                class="p-2 sm:p-3 bg-slate-800/50 rounded-full hover:bg-blue-600 transition-all duration-300 group">
+                                class="p-2 sm:p-3 surface-soft rounded-full hover:bg-blue-600 transition-all duration-300 group">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -82,14 +82,14 @@
                     </div>
 
                     <!-- Photo responsive -->
-                    <div class="flex justify-center lg:justify-end order-first lg:order-last">
+                    <div class="flex justify-center lg:justify-end order-first lg:order-last" data-reveal>
                         <div class="relative group">
                             <!-- Cercles décoratifs responsive -->
                             <div
-                                class="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300">
+                                class="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full blur-md opacity-25 group-hover:opacity-40 transition-opacity duration-300">
                             </div>
                             <div
-                                class="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-purple-400 to-emerald-400 rounded-full blur opacity-40 animate-pulse">
+                                class="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-purple-400 to-emerald-400 rounded-full blur-sm opacity-25 animate-pulse">
                             </div>
 
                             <!-- Photo responsive -->
@@ -125,7 +125,7 @@
                         À propos de moi
                     </h2>
 
-                    <div class="glass-effect rounded-2xl p-6 sm:p-8 hover:shadow-2xl transition-all duration-300">
+                    <div class="glass-effect card-surface rounded-2xl p-6 sm:p-8 transition-all duration-300" data-reveal>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                             <div class="text-center">
                                 <div
@@ -181,7 +181,7 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                         <div v-for="skill in skills" :key="skill.name"
-                            class="glass-effect rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300">
+                            class="glass-effect card-surface rounded-xl p-4 sm:p-6 transition-all duration-300" data-reveal>
                             <div class="flex items-center mb-3 sm:mb-4">
                                 <div
                                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-r from-emerald-400 to-blue-500 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">

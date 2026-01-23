@@ -27,7 +27,7 @@ const socialLinks = [
 <template>
     <footer class="relative bg-slate-950 border-t border-slate-800">
         <!-- Fond décoratif -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950"></div>
+        <div class="absolute inset-0 footer-backdrop"></div>
 
         <!-- Particules décoratives responsive -->
         <div class="absolute inset-0 overflow-hidden">

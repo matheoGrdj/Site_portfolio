@@ -1,8 +1,9 @@
-<template>
-  <div class="min-h-screen bg-slate-900 font-sans text-slate-100">
+﻿<template>
+  <div class="app-shell min-h-screen font-sans">
     <Navbar />
     <router-view />
     <Footer />
+    <div class="theme-reveal" aria-hidden="true"></div>
   </div>
 </template>
 

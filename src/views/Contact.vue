@@ -94,10 +94,10 @@ const handleSubmit = async (e) => {
 </script>
 
 <template>
-    <section class="py-16 px-4 md:px-6 min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/10 to-purple-900/10">
+    <section class="py-16 px-4 md:px-6 min-h-screen">
         <div class="container mx-auto max-w-6xl">
             <!-- En-tête -->
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-reveal>
                 <h1 class="text-5xl lg:text-6xl font-bold mb-6">
                     <span
                         class="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
@@ -115,7 +115,7 @@ const handleSubmit = async (e) => {
                 <div class="space-y-8">
                     <!-- Coordonnées -->
                     <div
-                        class="glass-effect rounded-3xl p-8 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500">
+                        class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500" data-reveal>
                         <div class="flex items-center mb-6">
                             <div
                                 class="w-16 h-16 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-2xl flex items-center justify-center mr-4">
@@ -166,7 +166,7 @@ const handleSubmit = async (e) => {
 
                     <!-- Réseaux sociaux -->
                     <div
-                        class="glass-effect rounded-3xl p-8 border border-slate-700/50 hover:border-purple-400/30 transition-all duration-500">
+                        class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-purple-400/30 transition-all duration-500" data-reveal>
                         <div class="flex items-center mb-6">
                             <div
                                 class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
@@ -212,7 +212,7 @@ const handleSubmit = async (e) => {
 
                     <!-- Disponibilité -->
                     <div
-                        class="glass-effect rounded-3xl p-8 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500">
+                        class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500" data-reveal>
                         <div class="flex items-center mb-6">
                             <div
                                 class="w-16 h-16 bg-gradient-to-r from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center mr-4">
@@ -246,7 +246,7 @@ const handleSubmit = async (e) => {
 
                 <!-- Formulaire de contact -->
                 <div
-                    class="glass-effect rounded-3xl p-8 border border-slate-700/50 hover:border-blue-400/30 transition-all duration-500">
+                    class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-blue-400/30 transition-all duration-500" data-reveal>
                     <div class="flex items-center mb-8">
                         <div
                             class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mr-4">
@@ -283,7 +283,7 @@ const handleSubmit = async (e) => {
                         <div>
                             <label for="name" class="block text-slate-300 font-medium mb-2">Nom complet</label>
                             <input id="name" v-model="formData.name" type="text"
-                                class="w-full bg-slate-800/50 border rounded-xl px-4 py-3 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-300"
+                                class="w-full field-base border rounded-xl px-4 py-3 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-300"
                                 :class="[errors.name ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-600 focus:ring-emerald-500/50 focus:border-emerald-400']"
                                 placeholder="Votre nom complet" :disabled="isSubmitting">
                             <p v-if="errors.name" class="text-red-400 text-sm mt-1">{{ errors.name }}</p>
@@ -292,7 +292,7 @@ const handleSubmit = async (e) => {
                         <div>
                             <label for="email" class="block text-slate-300 font-medium mb-2">Adresse email</label>
                             <input id="email" v-model="formData.email" type="email"
-                                class="w-full bg-slate-800/50 border rounded-xl px-4 py-3 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-300"
+                                class="w-full field-base border rounded-xl px-4 py-3 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-300"
                                 :class="[errors.email ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-600 focus:ring-emerald-500/50 focus:border-emerald-400']"
                                 placeholder="votre.email@exemple.com" :disabled="isSubmitting">
                             <p v-if="errors.email" class="text-red-400 text-sm mt-1">{{ errors.email }}</p>
@@ -301,7 +301,7 @@ const handleSubmit = async (e) => {
                         <div>
                             <label for="message" class="block text-slate-300 font-medium mb-2">Message</label>
                             <textarea id="message" v-model="formData.message" rows="6"
-                                class="w-full bg-slate-800/50 border rounded-xl px-4 py-3 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-300 resize-none"
+                                class="w-full field-base border rounded-xl px-4 py-3 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all duration-300 resize-none"
                                 :class="[errors.message ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-600 focus:ring-emerald-500/50 focus:border-emerald-400']"
                                 placeholder="Décrivez votre projet, votre question ou simplement dites bonjour !"
                                 :disabled="isSubmitting"></textarea>
