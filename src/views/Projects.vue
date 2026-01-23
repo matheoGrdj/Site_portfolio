@@ -1,16 +1,16 @@
 <template>
-    <section class="py-16 px-4 md:px-6 min-h-screen">
+    <section class="page-shell min-h-screen">
         <div class="container mx-auto max-w-6xl">
             <!-- En-tête avec animation -->
-            <div class="text-center mb-16" data-reveal>
-                <h1 class="text-5xl lg:text-6xl font-bold mb-6">
+            <div class="section-head" data-reveal>
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 section-title">
                     <span
                         class="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
                         Mes Projets
                     </span>
                 </h1>
-                <div class="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full"></div>
-                <p class="text-xl text-slate-300 mt-6 max-w-3xl mx-auto">
+                <div class="section-rule"></div>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto section-lead">
                     Découvrez mes réalisations techniques, de la conception au déploiement
                 </p>
             </div>
@@ -39,12 +39,9 @@
                                             Suivi Photovoltaïque
                                         </h3>
                                         <div class="flex flex-wrap gap-2 mt-3">
-                                            <span
-                                                class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium">Vue.js</span>
-                                            <span
-                                                class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">Symfony</span>
-                                            <span
-                                                class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-medium">API
+                                            <span class="chip">Vue.js</span>
+                                            <span class="chip">Symfony</span>
+                                            <span class="chip">API
                                                 REST</span>
                                         </div>
                                     </div>
@@ -61,19 +58,19 @@
 
                                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Monitoring temps réel</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Dashboards interactifs</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">API REST complète</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Projet universitaire</span>
                                     </div>
                                 </div>
@@ -114,12 +111,9 @@
                                             Drivup Auto-École
                                         </h3>
                                         <div class="flex flex-wrap gap-2 mt-3">
-                                            <span
-                                                class="px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-medium">Nuxt.js</span>
-                                            <span
-                                                class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">Netlify</span>
-                                            <span
-                                                class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium">Production</span>
+                                            <span class="chip">Nuxt.js</span>
+                                            <span class="chip">Netlify</span>
+                                            <span class="chip">Production</span>
                                         </div>
                                     </div>
                                 </div>
@@ -135,19 +129,19 @@
 
                                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Interface moderne</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Framework Nuxt.js</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Hébergé sur Netlify</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">En production</span>
                                     </div>
                                 </div>
@@ -164,7 +158,7 @@
                                     </div>
 
                                     <a href="https://drivup.netlify.app" target="_blank"
-                                        class="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
+                                        class="btn btn-secondary">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
@@ -199,12 +193,9 @@
                                             Challenge 24h
                                         </h3>
                                         <div class="flex flex-wrap gap-2 mt-3">
-                                            <span
-                                                class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm font-medium">24h</span>
-                                            <span
-                                                class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm font-medium">Algorithme</span>
-                                            <span
-                                                class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium">Déploiement</span>
+                                            <span class="chip">24h</span>
+                                            <span class="chip">Algorithme</span>
+                                            <span class="chip">Déploiement</span>
                                         </div>
                                     </div>
                                 </div>
@@ -218,19 +209,19 @@
 
                                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                                        <div class="bullet-dot animate-pulse"></div>
                                         <span class="text-slate-400">24h de développement</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+                                        <div class="bullet-dot animate-pulse"></div>
                                         <span class="text-slate-400">Algorithme évolutif</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                                        <div class="bullet-dot animate-pulse"></div>
                                         <span class="text-slate-400">Application fonctionnelle</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                                        <div class="bullet-dot animate-pulse"></div>
                                         <span class="text-slate-400">Déployé en production</span>
                                     </div>
                                 </div>
@@ -270,12 +261,9 @@
                                             Tic Tac Toe
                                         </h3>
                                         <div class="flex flex-wrap gap-2 mt-3">
-                                            <span
-                                                class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-medium">Vue.js</span>
-                                            <span
-                                                class="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-sm font-medium">JavaScript</span>
-                                            <span
-                                                class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium">Jeu</span>
+                                            <span class="chip">Vue.js</span>
+                                            <span class="chip">JavaScript</span>
+                                            <span class="chip">Jeu</span>
                                         </div>
                                     </div>
                                 </div>
@@ -289,19 +277,19 @@
 
                                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Interface interactive</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-teal-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Logique complète</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Animations fluides</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Multijoueur local</span>
                                     </div>
                                 </div>
@@ -343,12 +331,9 @@
                                             App de Gestion
                                         </h3>
                                         <div class="flex flex-wrap gap-2 mt-3">
-                                            <span
-                                                class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">PHP</span>
-                                            <span
-                                                class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-medium">Symfony</span>
-                                            <span
-                                                class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm font-medium">Stage</span>
+                                            <span class="chip">PHP</span>
+                                            <span class="chip">Symfony</span>
+                                            <span class="chip">Stage</span>
                                         </div>
                                     </div>
                                 </div>
@@ -363,19 +348,19 @@
 
                                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Gestion complète</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-indigo-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Architecture Symfony</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Interface admin</span>
                                     </div>
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                        <div class="bullet-dot"></div>
                                         <span class="text-slate-400">Base de données</span>
                                     </div>
                                 </div>
@@ -419,7 +404,7 @@
                             </p>
 
                             <a href="https://github.com/matheoGrdj" target="_blank"
-                                class="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white rounded-2xl font-semibold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-purple-500/25">
+                                class="btn btn-primary btn-lg">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />

@@ -38,7 +38,7 @@
                         </div>
 
                         <p
-                            class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                            class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0 section-lead">
                             Étudiant passionné en Master of Science à Epitech Nancy après un BUT Informatique,
                             spécialisé dans le développement web et logiciel moderne, les applications mobiles et les
                             solutions innovantes intégrant l’intelligence artificielle.
@@ -46,8 +46,7 @@
 
                         <!-- Boutons d'action responsive -->
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                            <router-link to="/projects"
-                                class="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 text-center">
+                            <router-link to="/projects" class="btn btn-primary btn-lg group text-center">
                                 <span class="relative z-10">Voir mes projets</span>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-r from-emerald-600 to-blue-700 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -55,7 +54,7 @@
                             </router-link>
 
                             <router-link to="/contact"
-                                class="px-6 sm:px-8 py-3 sm:py-4 border-2 border-emerald-400 text-emerald-400 rounded-full font-semibold hover:bg-emerald-400 hover:text-slate-900 transition-all duration-300 text-center">
+                                class="btn btn-ghost btn-lg text-center">
                                 Me contacter
                             </router-link>
                         </div>
@@ -63,7 +62,7 @@
                         <!-- Réseaux sociaux -->
                         <div class="flex space-x-4 sm:space-x-6 justify-center lg:justify-start">
                             <a href="https://github.com/matheoGrdj" target="_blank"
-                                class="p-2 sm:p-3 surface-soft rounded-full hover:bg-emerald-500 transition-all duration-300 group">
+                                class="icon-button group">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -71,7 +70,7 @@
                                 </svg>
                             </a>
                             <a href="https://www.linkedin.com/in/mathéo-grandjean-36353a271/" target="_blank"
-                                class="p-2 sm:p-3 surface-soft rounded-full hover:bg-blue-600 transition-all duration-300 group">
+                                class="icon-button group">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -116,12 +115,12 @@
         </section>
 
         <!-- Sections responsive -->
-        <section class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+        <section class="section-shell">
             <div class="container mx-auto max-w-6xl">
                 <!-- À propos responsive -->
                 <div class="mb-16 lg:mb-20">
                     <h2
-                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
                         À propos de moi
                     </h2>
 
@@ -175,7 +174,7 @@
                 <!-- Compétences responsive -->
                 <div class="mb-16 lg:mb-20">
                     <h2
-                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
                         Mes Compétences
                     </h2>
 

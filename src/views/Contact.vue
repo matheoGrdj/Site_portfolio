@@ -94,18 +94,18 @@ const handleSubmit = async (e) => {
 </script>
 
 <template>
-    <section class="py-16 px-4 md:px-6 min-h-screen">
+    <section class="page-shell min-h-screen">
         <div class="container mx-auto max-w-6xl">
             <!-- En-tête -->
-            <div class="text-center mb-16" data-reveal>
-                <h1 class="text-5xl lg:text-6xl font-bold mb-6">
+            <div class="section-head" data-reveal>
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 section-title">
                     <span
                         class="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
                         Me Contacter
                     </span>
                 </h1>
-                <div class="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full"></div>
-                <p class="text-xl text-slate-300 mt-6 max-w-3xl mx-auto">
+                <div class="section-rule"></div>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto section-lead">
                     Une question, un projet ou simplement envie d'échanger ? N'hésitez pas à me contacter !
                 </p>
             </div>
@@ -141,7 +141,7 @@ const handleSubmit = async (e) => {
                                 <div>
                                     <p class="text-slate-400 text-sm">Email</p>
                                     <a href="mailto:matheo.grdj88@gmail.com"
-                                        class="text-emerald-400 hover:text-emerald-300 transition-colors duration-300 font-medium">
+                                        class="text-emerald-400 link-ink font-medium">
                                         matheo.grdj88@gmail.com
                                     </a>
                                 </div>
@@ -272,8 +272,7 @@ const handleSubmit = async (e) => {
                         <h4 class="text-2xl font-bold text-emerald-400 mb-4">Message envoyé !</h4>
                         <p class="text-slate-300 mb-6">Merci pour votre message. Je vous répondrai dans les plus brefs
                             délais.</p>
-                        <button @click="isSubmitted = false"
-                            class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-blue-600 text-white rounded-xl font-medium hover:scale-105 transition-all duration-300">
+                        <button @click="isSubmitted = false" class="btn btn-primary">
                             Envoyer un nouveau message
                         </button>
                     </div>
@@ -313,7 +312,7 @@ const handleSubmit = async (e) => {
                         </div>
 
                         <button type="submit" :disabled="isSubmitting"
-                            class="w-full flex items-center justify-center space-x-3 py-4 bg-gradient-to-r from-emerald-500 to-blue-600 hover:from-emerald-600 hover:to-blue-700 text-white rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-emerald-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+                            class="btn btn-primary btn-block disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg v-if="isSubmitting" class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
                                     stroke-width="4"></circle>

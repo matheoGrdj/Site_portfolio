@@ -1,9 +1,9 @@
 ﻿<template>
-    <nav class="site-nav fixed w-full top-0 z-50 transition-all duration-300">
+    <nav class="site-nav fixed w-full top-0 z-50">
         <div class="container mx-auto px-3 sm:px-4 lg:px-6">
             <div class="flex justify-between items-center h-14 sm:h-16">
                 <!-- Logo animé responsive -->
-                <div class="font-bold text-base sm:text-lg lg:text-xl group cursor-pointer">
+                <div class="logo-mark font-bold text-base sm:text-lg lg:text-xl group cursor-pointer">
                     <span
                         class="text-emerald-400 group-hover:scale-110 transition-transform duration-300 inline-block">{</span>
                     <span
@@ -20,8 +20,8 @@
                         <ul class="flex items-center space-x-3 lg:space-x-6 relative">
                             <li v-for="link in navLinks" :key="link.to" class="relative">
                                 <router-link :to="link.to"
-                                    class="relative px-2 lg:px-4 py-2 text-sm lg:text-base text-slate-300 hover:text-emerald-400 transition-all duration-300 group"
-                                    active-class="text-emerald-400 nav-active">
+                                    class="relative px-2 lg:px-4 py-2 text-sm lg:text-base nav-link group"
+                                    active-class="nav-active">
                                     {{ link.name }}
                                     <span class="absolute bottom-0 left-0 w-full nav-underline"></span>
                                 </router-link>
@@ -65,7 +65,7 @@
                     <!-- Menu burger -->
                     <button @click="isMenuOpen = !isMenuOpen" :aria-expanded="isMenuOpen"
                         aria-label="Ouvrir le menu"
-                        class="md:hidden p-2 rounded-lg transition-colors duration-300 hover:bg-slate-800 text-slate-300">
+                        class="md:hidden icon-button menu-toggle">
                         <div class="space-y-1.5">
                             <div class="w-5 sm:w-6 h-0.5 bg-current transition-all duration-300"
                                 :class="{ 'rotate-45 translate-y-2': isMenuOpen }"></div>
@@ -84,8 +84,8 @@
                     <ul class="flex flex-col space-y-3 items-center">
                         <li v-for="link in navLinks" :key="link.to">
                             <router-link :to="link.to"
-                                class="block text-slate-300 hover:text-emerald-400 transition-colors duration-300 py-2 px-4 rounded-lg text-center"
-                                active-class="text-emerald-400 bg-emerald-400/10" @click="isMenuOpen = false">
+                                class="block nav-link py-2 px-4 text-center"
+                                active-class="nav-active" @click="isMenuOpen = false">
                                 {{ link.name }}
                             </router-link>
                         </li>
@@ -158,6 +158,12 @@ const navLinks = [
     }
 
     .xs\:inline {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu-toggle {
         display: none;
     }
 }
