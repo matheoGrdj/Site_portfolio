@@ -209,6 +209,17 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'Accueil',
+  meta: [
+    { name: 'description', content: 'Découvrez le portfolio de Mathéo Grandjean, étudiant en Master Epitech passionné par le développement web (Vue.js, Symfony) et mobile.' },
+    { property: 'og:title', content: 'Mathéo Grandjean | Développeur Web & Mobile' },
+    { property: 'og:description', content: 'Portfolio, Projets et Compétences de Mathéo Grandjean.' },
+    { property: 'og:image', content: 'https://matheo-grandjean.netlify.app/photoMoi.jpg' },
+  ]
+})
 
 const typedRole = ref('')
 const roles = ['Développeur Web', 'Développeur Mobile', 'Étudiant BUT Info', 'Créateur d\'applications']

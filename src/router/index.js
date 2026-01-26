@@ -4,9 +4,24 @@ import Projects from '../views/Projects.vue';
 import Contact from '../views/Contact.vue';
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/projects', component: Projects },
-    { path: '/contact', component: Contact },
+    {
+        path: '/',
+        name: 'Home',
+        component: Home,
+        meta: { title: 'Accueil' }
+    },
+    {
+        path: '/projects',
+        name: 'Projects',
+        component: Projects,
+        meta: { title: 'Mes Projets' }
+    },
+    {
+        path: '/contact',
+        name: 'Contact',
+        component: Contact,
+        meta: { title: 'Me Contacter' }
+    },
 ];
 
 const router = createRouter({
@@ -20,5 +35,7 @@ const router = createRouter({
         return { left: 0, top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' };
     },
 });
+
+
 
 export default router;

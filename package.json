@@ -11,6 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.6",
+    "@unhead/vue": "^2.1.2",
     "emailjs-com": "^3.2.0",
     "tailwindcss": "^4.1.6",
     "vue": "^3.5.13",
