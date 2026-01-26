@@ -2,6 +2,17 @@
 <script setup>
 import { ref, reactive } from 'vue';
 import emailjs from 'emailjs-com';
+import { useHead } from '@unhead/vue';
+
+useHead({
+  title: 'Me Contacter',
+  meta: [
+    { name: 'description', content: 'Contactez Mathéo Grandjean pour vos projets de développement web, mobile ou logiciel. Disponible sur Nancy et à distance.' },
+    { property: 'og:title', content: 'Me Contacter | Mathéo Grandjean' },
+  ]
+})
+
+
 
 // Contact form state
 const formData = reactive({

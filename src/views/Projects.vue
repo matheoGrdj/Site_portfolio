@@ -421,3 +421,16 @@
         </div>
     </section>
 </template>
+
+<script setup>
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'Mes Projets',
+  meta: [
+    { name: 'description', content: 'Explorez les projets de Mathéo Grandjean : Suivi photovoltaïque, Auto-école Drivup, Challenges de code et plus encore.' },
+    { property: 'og:title', content: 'Mes Projets | Mathéo Grandjean' },
+    { property: 'og:description', content: 'Découvrez mes réalisations techniques et projets open source.' },
+  ]
+})
+</script>
