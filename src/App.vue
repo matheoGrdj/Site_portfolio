@@ -1,8 +1,22 @@
 ﻿<template>
   <div class="app-shell min-h-screen font-sans">
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress__bar"></div>
+    </div>
     <Navbar />
     <router-view />
     <Footer />
+    <button
+      type="button"
+      class="back-to-top"
+      :class="{ 'is-visible': showBackToTop }"
+      aria-label="Retour en haut"
+      @click="scrollToTop"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0l-6 6m6-6l6 6"></path>
+      </svg>
+    </button>
     <div class="theme-reveal" aria-hidden="true"></div>
   </div>
 </template>
@@ -10,6 +24,8 @@
 <script setup>
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { useHead } from '@unhead/vue';
 
 // Configuration SEO Globale
@@ -56,6 +72,91 @@ useHead({
     }
   ]
 })
+
+const showBackToTop = ref(false)
+const route = useRoute()
+
+let rafId = 0
+let parallaxTargets = []
+let prefersReducedMotion = false
+let motionQuery
+
+const setRouteDataset = (path) => {
+  const normalized = path === '/' ? 'home' : path.replace('/', '')
+  document.documentElement.dataset.route = normalized || 'home'
+}
+
+const collectParallaxTargets = () => {
+  parallaxTargets = Array.from(document.querySelectorAll('[data-parallax]'))
+}
+
+const updateScrollEffects = () => {
+  rafId = 0
+  const scrollTop = window.scrollY || window.pageYOffset || 0
+  const doc = document.documentElement
+  const maxScroll = doc.scrollHeight - window.innerHeight
+  const progress = maxScroll > 0 ? scrollTop / maxScroll : 0
+  doc.style.setProperty('--scroll-progress', progress.toFixed(4))
+  showBackToTop.value = scrollTop > 480
+
+  if (prefersReducedMotion) {
+    parallaxTargets.forEach((target) => target.style.setProperty('--parallax-offset', '0px'))
+    return
+  }
+
+  parallaxTargets.forEach((target) => {
+    const speed = Number(target.dataset.parallax) || 0.08
+    const direction = target.dataset.parallaxDirection === 'down' ? 1 : -1
+    const offset = scrollTop * speed * direction
+    target.style.setProperty('--parallax-offset', `${offset}px`)
+  })
+}
+
+const onScroll = () => {
+  if (rafId) return
+  rafId = window.requestAnimationFrame(updateScrollEffects)
+}
+
+const scrollToTop = () => {
+  const prefersMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  window.scrollTo({ top: 0, behavior: prefersMotion ? 'auto' : 'smooth' })
+}
+
+const handleMotionChange = (event) => {
+  prefersReducedMotion = event.matches
+  updateScrollEffects()
+}
+
+onMounted(() => {
+  motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  prefersReducedMotion = motionQuery.matches
+  motionQuery.addEventListener('change', handleMotionChange)
+
+  setRouteDataset(route.path)
+  collectParallaxTargets()
+  updateScrollEffects()
+
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', onScroll)
+  if (motionQuery) {
+    motionQuery.removeEventListener('change', handleMotionChange)
+  }
+})
+
+watch(
+  () => route.path,
+  async (path) => {
+    setRouteDataset(path)
+    await nextTick()
+    collectParallaxTargets()
+    updateScrollEffects()
+  }
+)
 </script>
 
 

@@ -1,7 +1,7 @@
 ﻿<template>
-    <nav class="site-nav fixed w-full top-0 z-50">
+    <nav class="site-nav fixed w-full top-0 z-50" :class="{ 'is-scrolled': isScrolled }">
         <div class="container mx-auto px-3 sm:px-4 lg:px-6">
-            <div class="flex justify-between items-center h-14 sm:h-16">
+            <div class="nav-shell flex justify-between items-center">
                 <!-- Logo animé responsive -->
                 <div class="logo-mark font-bold text-base sm:text-lg lg:text-xl group cursor-pointer">
                     <span
@@ -104,11 +104,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { getCurrentTheme, toggleTheme } from '../utils/theme'
 
 const isMenuOpen = ref(false)
 const isDark = ref(getCurrentTheme() === 'dark')
+const isScrolled = ref(false)
 
 const handleThemeToggle = (event) => {
     const rect = event.currentTarget.getBoundingClientRect()
@@ -123,6 +124,19 @@ const navLinks = [
     { name: 'Projets', to: '/projects' },
     { name: 'Contact', to: '/contact' }
 ]
+
+const updateNavState = () => {
+    isScrolled.value = window.scrollY > 12
+}
+
+onMounted(() => {
+    updateNavState()
+    window.addEventListener('scroll', updateNavState, { passive: true })
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', updateNavState)
+})
 </script>
 
 <style scoped>

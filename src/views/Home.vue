@@ -1,12 +1,13 @@
 <template>
-    <div class="pt-14 sm:pt-16"> <!-- Offset pour navbar fixe responsive -->
-        <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6">
-            <!-- Background animé -->
+    <div class="home-shell">
+        <section class="hero-section snap-section">
             <div class="absolute inset-0 hero-backdrop"></div>
+            <div class="hero-orb parallax-layer" data-parallax="0.08" style="top: 8%; left: -4%;"
+                aria-hidden="true"></div>
+            <div class="hero-orb orb-right parallax-layer" data-parallax="0.12" data-parallax-direction="down"
+                style="bottom: 12%; right: -6%;" aria-hidden="true"></div>
 
-            <!-- Particules flottantes responsive -->
-            <div class="absolute inset-0">
+            <div class="absolute inset-0" aria-hidden="true">
                 <div v-for="i in (isMobile ? 16 : 32)" :key="i"
                     class="absolute w-1 h-1 rounded-full hero-particle animate-float" :style="{
                         left: Math.random() * 100 + '%',
@@ -18,11 +19,10 @@
             </div>
 
             <div class="container mx-auto relative z-10 max-w-7xl">
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    <!-- Contenu principal -->
-                    <div class="space-y-6 lg:space-y-8 text-center lg:text-left" data-reveal>
+                <div class="hero-grid">
+                    <div class="hero-intro space-y-6 lg:space-y-7 text-center lg:text-left" data-reveal>
                         <div class="space-y-3 lg:space-y-4">
-                            <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+                            <h1 class="hero-title font-bold">
                                 <span class="block text-slate-200">Salut, je suis</span>
                                 <span
                                     class="block bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
@@ -30,22 +30,23 @@
                                 </span>
                             </h1>
 
-                            <div class="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-slate-400">
-                                <span>Je suis </span>
-                                <span class="typed-text text-emerald-400 font-semibold">{{ typedRole }}</span>
-                                <span class="cursor">|</span>
+                            <div class="hero-role">
+                                <span>Je suis</span>
+                                <span class="hero-pill">
+                                    <span class="typed-text text-emerald-400 font-semibold">{{ typedRole }}</span>
+                                    <span class="cursor">|</span>
+                                </span>
                             </div>
                         </div>
 
                         <p
-                            class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0 section-lead">
+                            class="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed mx-auto lg:mx-0 section-lead">
                             Étudiant passionné en Master of Science à Epitech Nancy après un BUT Informatique,
                             spécialisé dans le développement web et logiciel moderne, les applications mobiles et les
                             solutions innovantes intégrant l’intelligence artificielle.
                         </p>
 
-                        <!-- Boutons d'action responsive -->
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                        <div class="hero-actions justify-center lg:justify-start">
                             <router-link to="/projects" class="btn btn-primary btn-lg group text-center">
                                 <span class="relative z-10">Voir mes projets</span>
                                 <div
@@ -53,16 +54,13 @@
                                 </div>
                             </router-link>
 
-                            <router-link to="/contact"
-                                class="btn btn-ghost btn-lg text-center">
+                            <router-link to="/contact" class="btn btn-ghost btn-lg text-center">
                                 Me contacter
                             </router-link>
                         </div>
 
-                        <!-- Réseaux sociaux -->
                         <div class="flex space-x-4 sm:space-x-6 justify-center lg:justify-start">
-                            <a href="https://github.com/matheoGrdj" target="_blank"
-                                class="icon-button group">
+                            <a href="https://github.com/matheoGrdj" target="_blank" class="icon-button group">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -80,125 +78,115 @@
                         </div>
                     </div>
 
-                    <!-- Photo responsive -->
-                    <div class="flex justify-center lg:justify-end order-first lg:order-last" data-reveal>
-                        <div class="relative group">
-                            <!-- Cercles décoratifs responsive -->
-                            <div
-                                class="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full blur-md opacity-25 group-hover:opacity-40 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-purple-400 to-emerald-400 rounded-full blur-sm opacity-25 animate-pulse">
-                            </div>
-
-                            <!-- Photo responsive -->
-                            <div
-                                class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-3 sm:border-4 border-emerald-400/50">
-                                <img src="/photoMoi.jpg" alt="Mathéo Grandjean"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
+                    <div class="hero-visual order-first lg:order-last" data-reveal style="--reveal-delay: 120ms;">
+                        <div class="hero-frame group">
+                            <div class="hero-ring"></div>
+                            <img src="/photoMoi.jpg" alt="Mathéo Grandjean"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Flèche scroll responsive -->
-            <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2">
-                <div class="animate-bounce">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                    </svg>
-                </div>
+            <div class="hero-scroll animate-bounce" aria-hidden="true">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
             </div>
         </section>
 
-        <!-- Sections responsive -->
-        <section class="section-shell">
+        <section class="section-shell snap-section">
             <div class="container mx-auto max-w-6xl">
-                <!-- À propos responsive -->
-                <div class="mb-16 lg:mb-20">
-                    <h2
-                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
-                        À propos de moi
-                    </h2>
+                <div class="about-grid">
+                    <div class="space-y-4" data-reveal>
+                        <div class="section-head is-left mb-0">
+                            <h2
+                                class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
+                                À propos de moi
+                            </h2>
+                            <div class="section-rule"></div>
+                        </div>
+                    </div>
 
-                    <div class="glass-effect card-surface rounded-2xl p-6 sm:p-8 transition-all duration-300" data-reveal>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                            <div class="text-center">
-                                <div
-                                    class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg sm:text-xl font-semibold mb-2 text-emerald-400">21 ans</h3>
+                    <div class="about-stats sm:grid-cols-2">
+                        <div class="stat-card" data-reveal style="--reveal-delay: 80ms;">
+                            <div class="stat-icon">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-emerald-400">21 ans</h3>
                                 <p class="text-slate-300 text-sm sm:text-base">Passionné par le développement</p>
                             </div>
+                        </div>
 
-                            <div class="text-center">
-                                <div
-                                    class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg sm:text-xl font-semibold mb-2 text-blue-400">Nancy</h3>
+                        <div class="stat-card" data-reveal style="--reveal-delay: 140ms;">
+                            <div class="stat-icon">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-emerald-400">Nancy</h3>
                                 <p class="text-slate-300 text-sm sm:text-base">Basé en France</p>
                             </div>
+                        </div>
 
-                            <div class="text-center sm:col-span-2 lg:col-span-1">
-                                <div
-                                    class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <h3 class="text-lg sm:text-xl font-semibold mb-2 text-purple-400">Master of Science</h3>
+                        <div class="stat-card sm:col-span-2" data-reveal style="--reveal-delay: 200ms;">
+                            <div class="stat-icon">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-semibold text-emerald-400">Master of Science</h3>
                                 <p class="text-slate-300 text-sm sm:text-base">1ère année</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Compétences responsive -->
-                <div class="mb-16 lg:mb-20">
+        <section class="section-shell snap-section">
+            <div class="container mx-auto max-w-6xl">
+                <div class="section-head is-left">
                     <h2
-                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
+                        class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
                         Mes Compétences
                     </h2>
+                    <div class="section-rule"></div>
+                </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                        <div v-for="skill in skills" :key="skill.name"
-                            class="glass-effect card-surface rounded-xl p-4 sm:p-6 transition-all duration-300" data-reveal>
-                            <div class="flex items-center mb-3 sm:mb-4">
+                <div class="skills-grid">
+                    <div v-for="(skill, index) in skills" :key="skill.name" class="skill-card" data-reveal
+                        :style="{ '--reveal-delay': `${index * 90}ms` }">
+                        <div class="flex items-start justify-between gap-4">
+                            <div class="flex items-start gap-3">
                                 <div
-                                    class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-r from-emerald-400 to-blue-500 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    class="w-10 h-10 rounded-lg bg-gradient-to-r from-emerald-400 to-blue-500 flex items-center justify-center flex-shrink-0">
                                     <span class="text-white font-bold text-sm sm:text-base">{{ skill.icon }}</span>
                                 </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="text-base sm:text-lg font-semibold text-slate-200 truncate">{{ skill.name
-                                    }}</h3>
-                                    <div class="w-full bg-slate-700 rounded-full h-1.5 sm:h-2 mt-2">
-                                        <div class="bg-gradient-to-r from-emerald-400 to-blue-500 h-1.5 sm:h-2 rounded-full transition-all duration-1000"
-                                            :style="{ width: skill.level + '%' }"></div>
-                                    </div>
+                                <div>
+                                    <h3 class="text-base sm:text-lg font-semibold text-slate-200">{{ skill.name }}</h3>
+                                    <p class="text-slate-400 text-sm sm:text-base">{{ skill.description }}</p>
                                 </div>
-                                <span
-                                    class="text-emerald-400 font-semibold ml-3 sm:ml-4 text-sm sm:text-base flex-shrink-0">{{
-                                        skill.level }}%</span>
                             </div>
-                            <p class="text-slate-400 text-sm sm:text-base">{{ skill.description }}</p>
+                            <span class="text-emerald-400 font-semibold text-sm sm:text-base">{{ skill.level }}%</span>
+                        </div>
+                        <div class="skill-meter mt-4">
+                            <span :style="{ width: skill.level + '%' }"></span>
                         </div>
                     </div>
                 </div>
@@ -231,7 +219,7 @@ const isMobile = ref(false)
 
 const skills = ref([
     { name: 'Vue.js / Nuxt.js', level: 95, icon: '💚', description: 'Frameworks Vue pour applications web modernes' },
-    { name: 'ReactJs / JavaScript', level: 85, icon: '⚛️', description: 'Développement d\'interfaces réactives' },
+    { name: 'ReactJs / JavaScript', level: 85, icon: '⚙️', description: 'Développement d\'interfaces réactives' },
     { name: 'PHP / Symfony / Laravel', level: 90, icon: '🐘', description: 'APIs robustes et applications backend' },
     { name: 'Flutter / Dart', level: 65, icon: '📱', description: 'Applications mobiles cross-platform' },
     { name: 'WinDev', level: 75, icon: '🖥️', description: 'Développement logiciel Windows' },

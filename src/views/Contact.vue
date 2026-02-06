@@ -106,9 +106,8 @@ const handleSubmit = async (e) => {
 
 <template>
     <section class="page-shell min-h-screen">
-        <div class="container mx-auto max-w-6xl">
-            <!-- En-tête -->
-            <div class="section-head" data-reveal>
+        <div class="container mx-auto max-w-7xl">
+            <div class="section-head is-left" data-reveal>
                 <h1 class="text-5xl lg:text-6xl font-bold mb-6 section-title">
                     <span
                         class="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
@@ -116,21 +115,18 @@ const handleSubmit = async (e) => {
                     </span>
                 </h1>
                 <div class="section-rule"></div>
-                <p class="text-xl text-slate-300 max-w-3xl mx-auto section-lead">
+                <p class="text-xl text-slate-300 max-w-3xl section-lead">
                     Une question, un projet ou simplement envie d'échanger ? N'hésitez pas à me contacter !
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Informations de contact -->
-                <div class="space-y-8">
-                    <!-- Coordonnées -->
-                    <div
-                        class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500" data-reveal>
+            <div class="contact-grid">
+                <div class="space-y-6">
+                    <div class="contact-card" data-reveal style="--reveal-delay: 0ms;">
                         <div class="flex items-center mb-6">
                             <div
-                                class="w-16 h-16 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-2xl flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                                class="w-14 h-14 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-2xl flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -175,13 +171,11 @@ const handleSubmit = async (e) => {
                         </div>
                     </div>
 
-                    <!-- Réseaux sociaux -->
-                    <div
-                        class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-purple-400/30 transition-all duration-500" data-reveal>
+                    <div class="contact-card" data-reveal style="--reveal-delay: 120ms;">
                         <div class="flex items-center mb-6">
                             <div
-                                class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                                class="w-14 h-14 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
@@ -221,13 +215,11 @@ const handleSubmit = async (e) => {
                         </div>
                     </div>
 
-                    <!-- Disponibilité -->
-                    <div
-                        class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-emerald-400/30 transition-all duration-500" data-reveal>
+                    <div class="contact-card" data-reveal style="--reveal-delay: 240ms;">
                         <div class="flex items-center mb-6">
                             <div
-                                class="w-16 h-16 bg-gradient-to-r from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                                class="w-14 h-14 bg-gradient-to-r from-emerald-400 to-green-500 rounded-2xl flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -255,13 +247,11 @@ const handleSubmit = async (e) => {
                     </div>
                 </div>
 
-                <!-- Formulaire de contact -->
-                <div
-                    class="glass-effect card-surface rounded-3xl p-8 border border-slate-700/50 hover:border-blue-400/30 transition-all duration-500" data-reveal>
+                <div class="contact-form-card" data-reveal style="--reveal-delay: 120ms;">
                     <div class="flex items-center mb-8">
                         <div
-                            class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none"
+                            class="w-14 h-14 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -270,7 +260,6 @@ const handleSubmit = async (e) => {
                         <h3 class="text-2xl font-bold text-slate-200">Envoyer un message</h3>
                     </div>
 
-                    <!-- Message de succès -->
                     <div v-if="isSubmitted" class="text-center py-12">
                         <div
                             class="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -288,7 +277,6 @@ const handleSubmit = async (e) => {
                         </button>
                     </div>
 
-                    <!-- Formulaire -->
                     <form v-else @submit="handleSubmit" class="space-y-6">
                         <div>
                             <label for="name" class="block text-slate-300 font-medium mb-2">Nom complet</label>

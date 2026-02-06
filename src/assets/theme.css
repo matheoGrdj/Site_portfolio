@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  --font-sans: "Space Grotesk", "Manrope", sans-serif;
+  --font-display: "Fraunces", "Space Grotesk", serif;
+  --font-mono: "IBM Plex Mono", "Menlo", monospace;
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  --accent: #34d0b3;
+  --accent-strong: #1fb594;
+  --accent-contrast: #041512;
+
+  --bg-dark: #0d1116;
+  --bg-light: #f7f6f2;
+  --surface-dark: #141a22;
+  --surface-light: #ffffff;
+  --surface-2-dark: #1c2532;
+  --surface-2-light: #f1efe9;
+  --text-dark: #eef2f6;
+  --text-light: #1b1f23;
+  --muted-dark: #a6b0c2;
+  --muted-light: #4d5868;
+  --muted-2-dark: #7f8ba3;
+  --muted-2-light: #7a8598;
+  --border-dark: rgba(148, 163, 184, 0.2);
+  --border-light: rgba(17, 24, 39, 0.12);
+
+  --shadow: 0 18px 46px rgba(2, 6, 23, 0.35);
+  --shadow-strong: 0 32px 70px rgba(2, 6, 23, 0.45);
+  --shadow-soft: 0 12px 32px rgba(2, 6, 23, 0.2);
+
+  --nav-height: 4.25rem;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: var(--bg-dark);
+  --surface: var(--surface-dark);
+  --surface-2: var(--surface-2-dark);
+  --text: var(--text-dark);
+  --muted: var(--muted-dark);
+  --muted-2: var(--muted-2-dark);
+  --border: var(--border-dark);
+  --ring: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg: var(--bg-light);
+    --surface: var(--surface-light);
+    --surface-2: var(--surface-2-light);
+    --text: var(--text-light);
+    --muted: var(--muted-light);
+    --muted-2: var(--muted-2-light);
+    --border: var(--border-light);
+    --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+    --shadow-strong: 0 30px 70px rgba(15, 23, 42, 0.16);
+    --shadow-soft: 0 10px 26px rgba(15, 23, 42, 0.1);
+    --ring: color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: var(--bg-light);
+  --surface: var(--surface-light);
+  --surface-2: var(--surface-2-light);
+  --text: var(--text-light);
+  --muted: var(--muted-light);
+  --muted-2: var(--muted-2-light);
+  --border: var(--border-light);
+  --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --shadow-strong: 0 30px 70px rgba(15, 23, 42, 0.16);
+  --shadow-soft: 0 10px 26px rgba(15, 23, 42, 0.1);
+  --ring: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: var(--bg-dark);
+  --surface: var(--surface-dark);
+  --surface-2: var(--surface-2-dark);
+  --text: var(--text-dark);
+  --muted: var(--muted-dark);
+  --muted-2: var(--muted-2-dark);
+  --border: var(--border-dark);
+  --shadow: 0 18px 46px rgba(2, 6, 23, 0.45);
+  --shadow-strong: 0 32px 70px rgba(2, 6, 23, 0.6);
+  --shadow-soft: 0 12px 32px rgba(2, 6, 23, 0.3);
+  --ring: color-mix(in srgb, var(--accent) 45%, transparent);
+}

@@ -10,7 +10,17 @@ export const initScrollReveal = () => {
     return;
   }
 
-  targets.forEach((target) => target.classList.add('reveal'));
+  targets.forEach((target) => {
+    target.classList.add('reveal');
+    const delay = target.dataset.revealDelay;
+    if (delay) {
+      const delayValue = Number(delay);
+      target.style.setProperty(
+        '--reveal-delay',
+        Number.isNaN(delayValue) ? delay : `${delayValue}ms`,
+      );
+    }
+  });
 
   if (prefersReducedMotion()) {
     targets.forEach((target) => target.classList.add('is-revealed'));
