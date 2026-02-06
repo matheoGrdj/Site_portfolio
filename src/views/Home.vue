@@ -222,7 +222,7 @@ useHead({
 })
 
 const typedRole = ref('')
-const roles = ['Développeur Web', 'Développeur Mobile', 'Étudiant BUT Info', 'Créateur d\'applications']
+const roles = ['Développeur Web', 'Développeur Mobile', 'Titulaire d\'un BUT Informatique', 'Créateur d\'applications', 'Étudiant en Master of Science']
 let currentRoleIndex = 0
 let currentCharIndex = 0
 let isDeleting = false
