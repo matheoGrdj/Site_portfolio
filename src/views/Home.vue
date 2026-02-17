@@ -1,16 +1,15 @@
 <template>
     <div class="pt-14 sm:pt-16"> <!-- Offset pour navbar fixe responsive -->
         <!-- Hero Section -->
-        <section ref="heroRef" class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 hero-glow">
+        <section ref="heroRef"
+            class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 hero-glow">
             <!-- Background animé -->
             <div class="absolute inset-0 hero-backdrop"></div>
 
             <!-- Particules flottantes responsive -->
             <div class="absolute inset-0">
                 <div v-for="p in particles" :key="p.id"
-                    class="absolute rounded-full hero-particle animate-float-organic"
-                    :class="p.sizeClass"
-                    :style="{
+                    class="absolute rounded-full hero-particle animate-float-organic" :class="p.sizeClass" :style="{
                         left: p.left,
                         top: p.top,
                         animationDelay: p.delay,
@@ -22,19 +21,27 @@
             <!-- Formes parallax décoratives -->
             <div class="parallax-shape top-[18%] left-[8%]"
                 :style="{ transform: `translateY(${parallaxOffset * 0.08}px) rotate(${parallaxOffset * 0.02}deg)` }">
-                <svg width="60" height="60" viewBox="0 0 60 60"><polygon points="30,5 55,50 5,50" stroke-width="1" /></svg>
+                <svg width="60" height="60" viewBox="0 0 60 60">
+                    <polygon points="30,5 55,50 5,50" stroke-width="1" />
+                </svg>
             </div>
             <div class="parallax-shape top-[70%] left-[5%]"
                 :style="{ transform: `translateY(${parallaxOffset * -0.05}px) rotate(${parallaxOffset * -0.03}deg)` }">
-                <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" stroke-width="1" /></svg>
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" stroke-width="1" />
+                </svg>
             </div>
             <div class="parallax-shape top-[25%] right-[6%]"
                 :style="{ transform: `translateY(${parallaxOffset * 0.06}px) rotate(${parallaxOffset * 0.015}deg)` }">
-                <svg width="50" height="50" viewBox="0 0 50 50"><rect x="5" y="5" width="40" height="40" rx="4" stroke-width="1" /></svg>
+                <svg width="50" height="50" viewBox="0 0 50 50">
+                    <rect x="5" y="5" width="40" height="40" rx="4" stroke-width="1" />
+                </svg>
             </div>
             <div class="parallax-shape top-[65%] right-[10%]"
                 :style="{ transform: `translateY(${parallaxOffset * -0.07}px)` }">
-                <svg width="35" height="35" viewBox="0 0 35 35"><polygon points="17.5,2 33,13 27,32 8,32 2,13" stroke-width="1" /></svg>
+                <svg width="35" height="35" viewBox="0 0 35 35">
+                    <polygon points="17.5,2 33,13 27,32 8,32 2,13" stroke-width="1" />
+                </svg>
             </div>
 
             <div class="container mx-auto relative z-10 max-w-7xl">
@@ -44,7 +51,7 @@
                         <div class="space-y-3 lg:space-y-4">
                             <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                                 <span class="block text-slate-200">Salut, je suis</span>
-                                <span class="block hero-gradient-text">
+                                <span class="hero-gradient-text">
                                     Mathéo Grandjean
                                 </span>
                             </h1>
@@ -72,16 +79,14 @@
                                 </div>
                             </router-link>
 
-                            <router-link to="/contact"
-                                class="btn btn-ghost btn-lg text-center">
+                            <router-link to="/contact" class="btn btn-ghost btn-lg text-center">
                                 Me contacter
                             </router-link>
                         </div>
 
                         <!-- Réseaux sociaux -->
                         <div class="flex space-x-4 sm:space-x-6 justify-center lg:justify-start">
-                            <a href="https://github.com/matheoGrdj" target="_blank"
-                                class="icon-button group">
+                            <a href="https://github.com/matheoGrdj" target="_blank" class="icon-button group">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -143,7 +148,8 @@
                         À propos de moi
                     </h2>
 
-                    <div class="glass-effect card-surface rounded-2xl p-6 sm:p-8 transition-all duration-300" data-reveal>
+                    <div class="glass-effect card-surface rounded-2xl p-6 sm:p-8 transition-all duration-300"
+                        data-reveal>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                             <div class="text-center">
                                 <div
@@ -199,7 +205,8 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                         <div v-for="(skill, index) in skills" :key="skill.name"
-                            class="glass-effect card-surface rounded-xl p-4 sm:p-6 transition-all duration-300" data-reveal>
+                            class="glass-effect card-surface rounded-xl p-4 sm:p-6 transition-all duration-300"
+                            data-reveal>
                             <div class="flex items-center mb-3 sm:mb-4">
                                 <div
                                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-r from-emerald-400 to-blue-500 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
@@ -207,10 +214,11 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <h3 class="text-base sm:text-lg font-semibold text-slate-200 truncate">{{ skill.name
-                                    }}</h3>
+                                        }}</h3>
                                     <div class="w-full bg-slate-700 rounded-full h-1.5 sm:h-2 mt-2">
                                         <div class="bg-gradient-to-r from-emerald-400 to-blue-500 h-1.5 sm:h-2 rounded-full skill-bar-fill"
-                                            :style="{ width: skillsRevealed ? skill.level + '%' : '0%', '--skill-delay': (index * 150) + 'ms' }"></div>
+                                            :style="{ width: skillsRevealed ? skill.level + '%' : '0%', '--skill-delay': (index * 150) + 'ms' }">
+                                        </div>
                                     </div>
                                 </div>
                                 <span
@@ -232,13 +240,13 @@ import { useHead } from '@unhead/vue'
 import { useCursorGlow } from '@/utils/useCursorGlow'
 
 useHead({
-  title: 'Accueil',
-  meta: [
-    { name: 'description', content: 'Découvrez le portfolio de Mathéo Grandjean, étudiant en Master Epitech passionné par le développement web (Vue.js, Symfony) et mobile.' },
-    { property: 'og:title', content: 'Mathéo Grandjean | Développeur Web & Mobile' },
-    { property: 'og:description', content: 'Portfolio, Projets et Compétences de Mathéo Grandjean.' },
-    { property: 'og:image', content: 'https://matheo-grandjean.netlify.app/photoMoi.jpg' },
-  ]
+    title: 'Accueil',
+    meta: [
+        { name: 'description', content: 'Découvrez le portfolio de Mathéo Grandjean, étudiant en Master Epitech passionné par le développement web (Vue.js, Symfony) et mobile.' },
+        { property: 'og:title', content: 'Mathéo Grandjean | Développeur Web & Mobile' },
+        { property: 'og:description', content: 'Portfolio, Projets et Compétences de Mathéo Grandjean.' },
+        { property: 'og:image', content: 'https://matheo-grandjean.netlify.app/photoMoi.jpg' },
+    ]
 })
 
 const heroRef = ref(null)

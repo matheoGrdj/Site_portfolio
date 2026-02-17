@@ -322,15 +322,35 @@ h5 {
 }
 
 @keyframes blob-move-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(80px, 40px) scale(1.1); }
-  66% { transform: translate(-40px, 60px) scale(0.95); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(80px, 40px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-40px, 60px) scale(0.95);
+  }
 }
 
 @keyframes blob-move-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-60px, -30px) scale(1.05); }
-  66% { transform: translate(50px, -50px) scale(1.1); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-60px, -30px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
 }
 
 .footer-backdrop {
@@ -362,11 +382,30 @@ h5 {
 }
 
 @keyframes float-organic {
-  0%   { transform: translate(0, 0) scale(1); opacity: 0.3; }
-  25%  { transform: translate(10px, -15px) scale(1.1); opacity: 0.6; }
-  50%  { transform: translate(-5px, -25px) scale(0.9); opacity: 0.4; }
-  75%  { transform: translate(8px, -10px) scale(1.05); opacity: 0.7; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+
+  25% {
+    transform: translate(10px, -15px) scale(1.1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translate(-5px, -25px) scale(0.9);
+    opacity: 0.4;
+  }
+
+  75% {
+    transform: translate(8px, -10px) scale(1.05);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
 }
 
 .animate-float-organic {
@@ -393,12 +432,10 @@ h5 {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--accent) 40%, transparent),
-    transparent 50%,
-    color-mix(in srgb, var(--accent) 20%, transparent)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--accent) 40%, transparent),
+      transparent 50%,
+      color-mix(in srgb, var(--accent) 20%, transparent));
   opacity: 0;
   transition: opacity 400ms ease;
   pointer-events: none;
@@ -418,7 +455,7 @@ h5 {
 
 .card-surface:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 60px color-mix(in srgb, var(--accent) 15%, rgba(0,0,0,0.3));
+  box-shadow: 0 20px 60px color-mix(in srgb, var(--accent) 15%, rgba(0, 0, 0, 0.3));
 }
 
 .card-surface:hover::before {
@@ -521,7 +558,7 @@ h5 {
   z-index: 0;
 }
 
-.btn > * {
+.btn>* {
   position: relative;
   z-index: 1;
 }
@@ -545,8 +582,15 @@ h5 {
 }
 
 @keyframes btn-glow-pulse {
-  0%, 100% { box-shadow: var(--shadow), 0 0 0 0 color-mix(in srgb, var(--accent) 40%, transparent); }
-  50% { box-shadow: var(--shadow), 0 0 20px 4px color-mix(in srgb, var(--accent) 25%, transparent); }
+
+  0%,
+  100% {
+    box-shadow: var(--shadow), 0 0 0 0 color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  50% {
+    box-shadow: var(--shadow), 0 0 20px 4px color-mix(in srgb, var(--accent) 25%, transparent);
+  }
 }
 
 .btn-primary:hover {
@@ -685,45 +729,58 @@ h5 {
 
 /* --- Hero gradient text animation --- */
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-gradient-text {
   display: inline-block;
-  background: linear-gradient(
-    270deg,
-    var(--accent),
-    color-mix(in srgb, var(--accent) 60%, #818cf8),
-    color-mix(in srgb, var(--accent) 40%, #a78bfa),
-    var(--accent)
-  );
+  width: fit-content;
+  background-color: transparent;
+  background-image: linear-gradient(270deg,
+      var(--accent),
+      color-mix(in srgb, var(--accent) 60%, #818cf8),
+      color-mix(in srgb, var(--accent) 40%, #a78bfa),
+      var(--accent));
   background-size: 300% 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 6s ease infinite;
-  padding-bottom: 0.1em; /* Prevent descender clipping */
-  margin-bottom: -0.1em; /* Compensate padding */
+  padding-bottom: 0.1em;
+  /* Prevent descender clipping */
+  margin-bottom: -0.1em;
+  /* Compensate padding */
 }
 
 /* --- Section title shimmer --- */
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .section-title-shimmer {
-  background: linear-gradient(
-    90deg,
-    var(--text) 0%,
-    var(--text) 40%,
-    var(--accent) 50%,
-    var(--text) 60%,
-    var(--text) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--text) 0%,
+      var(--text) 40%,
+      var(--accent) 50%,
+      var(--text) 60%,
+      var(--text) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -741,18 +798,21 @@ h5 {
 
 /* --- Hero photo animated ring --- */
 @keyframes ring-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-ring-animated {
-  background: conic-gradient(
-    from 0deg,
-    var(--accent),
-    color-mix(in srgb, var(--accent) 40%, #818cf8),
-    color-mix(in srgb, var(--accent) 60%, #a78bfa),
-    var(--accent)
-  );
+  background: conic-gradient(from 0deg,
+      var(--accent),
+      color-mix(in srgb, var(--accent) 40%, #818cf8),
+      color-mix(in srgb, var(--accent) 60%, #a78bfa),
+      var(--accent));
   animation: ring-rotate 8s linear infinite;
 }
 
@@ -784,11 +844,9 @@ h5 {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    500px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-    color-mix(in srgb, var(--accent) 10%, transparent),
-    transparent 60%
-  );
+  background: radial-gradient(500px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+      color-mix(in srgb, var(--accent) 10%, transparent),
+      transparent 60%);
   opacity: var(--glow-opacity, 0);
   transition: opacity 400ms ease;
   pointer-events: none;
@@ -1010,6 +1068,7 @@ h5 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .reveal,
   .theme-reveal,
   .animate-float,
