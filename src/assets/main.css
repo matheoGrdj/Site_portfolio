@@ -691,6 +691,7 @@ h5 {
 }
 
 .hero-gradient-text {
+  display: inline-block;
   background: linear-gradient(
     270deg,
     var(--accent),
@@ -702,7 +703,10 @@ h5 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   animation: gradient-shift 6s ease infinite;
+  padding-bottom: 0.1em; /* Prevent descender clipping */
+  margin-bottom: -0.1em; /* Compensate padding */
 }
 
 /* --- Section title shimmer --- */
