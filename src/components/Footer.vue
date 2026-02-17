@@ -1,5 +1,23 @@
 <script setup>
+import { computed } from 'vue'
+
 const year = new Date().getFullYear();
+
+const footerSizeClasses = ['hero-particle--sm', 'hero-particle--sm', 'hero-particle--md', 'hero-particle--lg']
+const footerParticles = computed(() => {
+    const arr = []
+    for (let i = 0; i < 12; i++) {
+        arr.push({
+            id: i,
+            sizeClass: footerSizeClasses[i % footerSizeClasses.length],
+            left: (Math.random() * 100).toFixed(1) + '%',
+            top: (Math.random() * 100).toFixed(1) + '%',
+            delay: (Math.random() * 4).toFixed(1) + 's',
+            duration: (5 + Math.random() * 4).toFixed(1) + 's'
+        })
+    }
+    return arr
+})
 
 const skills = [
     { name: 'Vue.js', icon: '⚡' },
@@ -31,12 +49,14 @@ const socialLinks = [
 
         <!-- Particules décoratives responsive -->
         <div class="absolute inset-0 overflow-hidden">
-            <div v-for="i in 10" :key="i"
-                class="absolute w-1 h-1 bg-emerald-400/20 rounded-full animate-float-gentle hidden sm:block" :style="{
-                    left: Math.random() * 100 + '%',
-                    top: Math.random() * 100 + '%',
-                    animationDelay: Math.random() * 3 + 's',
-                    animationDuration: (4 + Math.random() * 2) + 's'
+            <div v-for="p in footerParticles" :key="p.id"
+                class="absolute rounded-full hero-particle animate-float-organic hidden sm:block"
+                :class="p.sizeClass"
+                :style="{
+                    left: p.left,
+                    top: p.top,
+                    animationDelay: p.delay,
+                    '--float-duration': p.duration
                 }">
             </div>
         </div>

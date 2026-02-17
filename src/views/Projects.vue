@@ -3,11 +3,8 @@
         <div class="container mx-auto max-w-6xl">
             <!-- En-tête avec animation -->
             <div class="section-head" data-reveal>
-                <h1 class="text-5xl lg:text-6xl font-bold mb-6 section-title">
-                    <span
-                        class="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                        Mes Projets
-                    </span>
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 section-title section-title-shimmer">
+                    Mes Projets
                 </h1>
                 <div class="section-rule"></div>
                 <p class="text-xl text-slate-300 max-w-3xl mx-auto section-lead">
@@ -16,7 +13,7 @@
             </div>
 
             <!-- Grille de projets -->
-            <div class="grid gap-8 lg:gap-12">
+            <div ref="projectsGrid" class="grid gap-8 lg:gap-12">
                 <!-- Projet Tutoré -->
                 <div class="group relative">
                     <div class="glass-effect card-surface rounded-3xl p-8 transition-all duration-500 border border-slate-700/50 hover:border-emerald-400/30"
@@ -393,7 +390,7 @@
                             </div>
 
                             <h3
-                                class="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+                                class="text-3xl font-bold mb-4 section-title-shimmer">
                                 Découvrir tous mes projets
                             </h3>
 
@@ -423,7 +420,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useHead } from '@unhead/vue'
+import { useCardTilt } from '@/utils/useCardTilt'
+
+const projectsGrid = ref(null)
+useCardTilt(projectsGrid)
 
 useHead({
   title: 'Mes Projets',
