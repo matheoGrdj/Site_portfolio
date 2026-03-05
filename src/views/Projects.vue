@@ -157,7 +157,7 @@
                                         Auto-école Drivup - Strasbourg
                                     </div>
 
-                                    <a href="https://drivup.netlify.app" target="_blank" class="btn btn-secondary">
+                                    <a href="https://drivup-ae.com" target="_blank" class="btn btn-secondary">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
@@ -426,11 +426,11 @@
 import { useHead } from '@unhead/vue'
 
 useHead({
-  title: 'Mes Projets',
-  meta: [
-    { name: 'description', content: 'Explorez les projets de Mathéo Grandjean : Suivi photovoltaïque, Auto-école Drivup, Challenges de code et plus encore.' },
-    { property: 'og:title', content: 'Mes Projets | Mathéo Grandjean' },
-    { property: 'og:description', content: 'Découvrez mes réalisations techniques et projets open source.' },
-  ]
+    title: 'Mes Projets',
+    meta: [
+        { name: 'description', content: 'Explorez les projets de Mathéo Grandjean : Suivi photovoltaïque, Auto-école Drivup, Challenges de code et plus encore.' },
+        { property: 'og:title', content: 'Mes Projets | Mathéo Grandjean' },
+        { property: 'og:description', content: 'Découvrez mes réalisations techniques et projets open source.' },
+    ]
 })
 </script>
