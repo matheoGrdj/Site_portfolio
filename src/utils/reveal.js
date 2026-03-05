@@ -1,4 +1,4 @@
-﻿let observer;
+let observer;
 
 const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -13,9 +13,27 @@ export const initScrollReveal = () => {
   targets.forEach((target) => target.classList.add('reveal'));
 
   if (prefersReducedMotion()) {
-    targets.forEach((target) => target.classList.add('is-revealed'));
+    targets.forEach((target) => {
+      target.classList.add('is-revealed');
+      target.querySelectorAll('.skill-bar-fill').forEach((bar) => {
+        bar.classList.add('is-revealed');
+      });
+    });
     return;
   }
+
+  // Assign stagger delays to sibling [data-reveal] elements
+  const processed = new Set();
+  targets.forEach((target) => {
+    const parent = target.parentElement;
+    if (!parent || processed.has(parent)) return;
+    processed.add(parent);
+
+    const siblings = parent.querySelectorAll(':scope > [data-reveal], :scope > * > [data-reveal]');
+    siblings.forEach((sib, index) => {
+      sib.style.setProperty('--reveal-delay', `${index * 120}ms`);
+    });
+  });
 
   if (observer) {
     observer.disconnect();
@@ -26,6 +44,9 @@ export const initScrollReveal = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
+          entry.target.querySelectorAll('.skill-bar-fill').forEach((bar) => {
+            bar.classList.add('is-revealed');
+          });
           observer.unobserve(entry.target);
         }
       });

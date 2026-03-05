@@ -1,20 +1,47 @@
 <template>
     <div class="pt-14 sm:pt-16"> <!-- Offset pour navbar fixe responsive -->
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6">
+        <section ref="heroRef"
+            class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 hero-glow">
             <!-- Background animé -->
             <div class="absolute inset-0 hero-backdrop"></div>
 
             <!-- Particules flottantes responsive -->
             <div class="absolute inset-0">
-                <div v-for="i in (isMobile ? 16 : 32)" :key="i"
-                    class="absolute w-1 h-1 rounded-full hero-particle animate-float" :style="{
-                        left: Math.random() * 100 + '%',
-                        top: Math.random() * 100 + '%',
-                        animationDelay: Math.random() * 5 + 's',
-                        animationDuration: (3 + Math.random() * 4) + 's'
+                <div v-for="p in particles" :key="p.id"
+                    class="absolute rounded-full hero-particle animate-float-organic" :class="p.sizeClass" :style="{
+                        left: p.left,
+                        top: p.top,
+                        animationDelay: p.delay,
+                        '--float-duration': p.duration
                     }">
                 </div>
+            </div>
+
+            <!-- Formes parallax décoratives -->
+            <div class="parallax-shape top-[18%] left-[8%]"
+                :style="{ transform: `translateY(${parallaxOffset * 0.08}px) rotate(${parallaxOffset * 0.02}deg)` }">
+                <svg width="60" height="60" viewBox="0 0 60 60">
+                    <polygon points="30,5 55,50 5,50" stroke-width="1" />
+                </svg>
+            </div>
+            <div class="parallax-shape top-[70%] left-[5%]"
+                :style="{ transform: `translateY(${parallaxOffset * -0.05}px) rotate(${parallaxOffset * -0.03}deg)` }">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="18" stroke-width="1" />
+                </svg>
+            </div>
+            <div class="parallax-shape top-[25%] right-[6%]"
+                :style="{ transform: `translateY(${parallaxOffset * 0.06}px) rotate(${parallaxOffset * 0.015}deg)` }">
+                <svg width="50" height="50" viewBox="0 0 50 50">
+                    <rect x="5" y="5" width="40" height="40" rx="4" stroke-width="1" />
+                </svg>
+            </div>
+            <div class="parallax-shape top-[65%] right-[10%]"
+                :style="{ transform: `translateY(${parallaxOffset * -0.07}px)` }">
+                <svg width="35" height="35" viewBox="0 0 35 35">
+                    <polygon points="17.5,2 33,13 27,32 8,32 2,13" stroke-width="1" />
+                </svg>
             </div>
 
             <div class="container mx-auto relative z-10 max-w-7xl">
@@ -24,8 +51,7 @@
                         <div class="space-y-3 lg:space-y-4">
                             <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                                 <span class="block text-slate-200">Salut, je suis</span>
-                                <span
-                                    class="block bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+                                <span class="hero-gradient-text">
                                     Mathéo Grandjean
                                 </span>
                             </h1>
@@ -41,7 +67,7 @@
                             class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0 section-lead">
                             Étudiant passionné en Master of Science à Epitech Nancy après un BUT Informatique,
                             spécialisé dans le développement web et logiciel moderne, les applications mobiles et les
-                            solutions innovantes intégrant l’intelligence artificielle.
+                            solutions innovantes intégrant l'intelligence artificielle.
                         </p>
 
                         <!-- Boutons d'action responsive -->
@@ -53,16 +79,14 @@
                                 </div>
                             </router-link>
 
-                            <router-link to="/contact"
-                                class="btn btn-ghost btn-lg text-center">
+                            <router-link to="/contact" class="btn btn-ghost btn-lg text-center">
                                 Me contacter
                             </router-link>
                         </div>
 
                         <!-- Réseaux sociaux -->
                         <div class="flex space-x-4 sm:space-x-6 justify-center lg:justify-start">
-                            <a href="https://github.com/matheoGrdj" target="_blank"
-                                class="icon-button group">
+                            <a href="https://github.com/matheoGrdj" target="_blank" class="icon-button group">
                                 <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 24 24">
                                     <path
@@ -88,7 +112,7 @@
                                 class="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-full blur-md opacity-25 group-hover:opacity-40 transition-opacity duration-300">
                             </div>
                             <div
-                                class="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-purple-400 to-emerald-400 rounded-full blur-sm opacity-25 animate-pulse">
+                                class="absolute -inset-1 sm:-inset-2 rounded-full blur-sm opacity-25 hero-ring-animated">
                             </div>
 
                             <!-- Photo responsive -->
@@ -120,11 +144,12 @@
                 <!-- À propos responsive -->
                 <div class="mb-16 lg:mb-20">
                     <h2
-                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
+                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 section-title section-title-shimmer">
                         À propos de moi
                     </h2>
 
-                    <div class="glass-effect card-surface rounded-2xl p-6 sm:p-8 transition-all duration-300" data-reveal>
+                    <div class="glass-effect card-surface rounded-2xl p-6 sm:p-8 transition-all duration-300"
+                        data-reveal>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                             <div class="text-center">
                                 <div
@@ -172,15 +197,16 @@
                 </div>
 
                 <!-- Compétences responsive -->
-                <div class="mb-16 lg:mb-20">
+                <div class="mb-16 lg:mb-20" ref="skillsSection">
                     <h2
-                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent section-title">
+                        class="text-3xl sm:text-4xl font-bold text-center mb-8 lg:mb-12 section-title section-title-shimmer">
                         Mes Compétences
                     </h2>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                        <div v-for="skill in skills" :key="skill.name"
-                            class="glass-effect card-surface rounded-xl p-4 sm:p-6 transition-all duration-300" data-reveal>
+                        <div v-for="(skill, index) in skills" :key="skill.name"
+                            class="glass-effect card-surface rounded-xl p-4 sm:p-6 transition-all duration-300"
+                            data-reveal>
                             <div class="flex items-center mb-3 sm:mb-4">
                                 <div
                                     class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-r from-emerald-400 to-blue-500 flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
@@ -188,10 +214,11 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <h3 class="text-base sm:text-lg font-semibold text-slate-200 truncate">{{ skill.name
-                                    }}</h3>
+                                        }}</h3>
                                     <div class="w-full bg-slate-700 rounded-full h-1.5 sm:h-2 mt-2">
-                                        <div class="bg-gradient-to-r from-emerald-400 to-blue-500 h-1.5 sm:h-2 rounded-full transition-all duration-1000"
-                                            :style="{ width: skill.level + '%' }"></div>
+                                        <div class="bg-gradient-to-r from-emerald-400 to-blue-500 h-1.5 sm:h-2 rounded-full skill-bar-fill"
+                                            :style="{ width: skillsRevealed ? skill.level + '%' : '0%', '--skill-delay': (index * 150) + 'ms' }">
+                                        </div>
                                     </div>
                                 </div>
                                 <span
@@ -208,26 +235,33 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useHead } from '@unhead/vue'
+import { useCursorGlow } from '@/utils/useCursorGlow'
 
 useHead({
-  title: 'Accueil',
-  meta: [
-    { name: 'description', content: 'Découvrez le portfolio de Mathéo Grandjean, étudiant en Master Epitech passionné par le développement web (Vue.js, Symfony) et mobile.' },
-    { property: 'og:title', content: 'Mathéo Grandjean | Développeur Web & Mobile' },
-    { property: 'og:description', content: 'Portfolio, Projets et Compétences de Mathéo Grandjean.' },
-    { property: 'og:image', content: 'https://matheo-grandjean.netlify.app/photoMoi.jpg' },
-  ]
+    title: 'Accueil',
+    meta: [
+        { name: 'description', content: 'Découvrez le portfolio de Mathéo Grandjean, étudiant en Master Epitech passionné par le développement web (Vue.js, Symfony) et mobile.' },
+        { property: 'og:title', content: 'Mathéo Grandjean | Développeur Web & Mobile' },
+        { property: 'og:description', content: 'Portfolio, Projets et Compétences de Mathéo Grandjean.' },
+        { property: 'og:image', content: 'https://matheo-grandjean.netlify.app/photoMoi.jpg' },
+    ]
 })
 
+const heroRef = ref(null)
+useCursorGlow(heroRef)
+
 const typedRole = ref('')
-const roles = ['Développeur Web', 'Développeur Mobile', 'Étudiant BUT Info', 'Créateur d\'applications']
+const roles = ['Développeur Web', 'Développeur Mobile', 'Titulaire d\'un BUT Informatique', 'Créateur d\'applications', 'Étudiant en Master of Science']
 let currentRoleIndex = 0
 let currentCharIndex = 0
 let isDeleting = false
 
 const isMobile = ref(false)
+const parallaxOffset = ref(0)
+const skillsRevealed = ref(false)
+const skillsSection = ref(null)
 
 const skills = ref([
     { name: 'Vue.js / Nuxt.js', level: 95, icon: '💚', description: 'Frameworks Vue pour applications web modernes' },
@@ -237,6 +271,24 @@ const skills = ref([
     { name: 'WinDev', level: 75, icon: '🖥️', description: 'Développement logiciel Windows' },
     { name: 'Bases de données', level: 85, icon: '💾', description: 'MySQL, PostgreSQL, MongoDB' }
 ])
+
+// Generate particles with varied sizes
+const sizeClasses = ['hero-particle--sm', 'hero-particle--sm', 'hero-particle--md', 'hero-particle--md', 'hero-particle--lg']
+const particleCount = computed(() => isMobile.value ? 16 : 32)
+const particles = computed(() => {
+    const arr = []
+    for (let i = 0; i < particleCount.value; i++) {
+        arr.push({
+            id: i,
+            sizeClass: sizeClasses[i % sizeClasses.length],
+            left: (Math.random() * 100).toFixed(1) + '%',
+            top: (Math.random() * 100).toFixed(1) + '%',
+            delay: (Math.random() * 5).toFixed(1) + 's',
+            duration: (4 + Math.random() * 5).toFixed(1) + 's'
+        })
+    }
+    return arr
+})
 
 const checkMobile = () => {
     isMobile.value = window.innerWidth < 768
@@ -267,34 +319,45 @@ const typeRole = () => {
     setTimeout(typeRole, isDeleting ? 50 : 100)
 }
 
+let skillsObserver = null
+
+const onScroll = () => {
+    parallaxOffset.value = window.scrollY
+}
+
 onMounted(() => {
     typeRole()
     checkMobile()
     window.addEventListener('resize', checkMobile)
+
+    // Parallax scroll
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.addEventListener('scroll', onScroll, { passive: true })
+    }
+
+    // Skills section observer for bar animation
+    if (skillsSection.value) {
+        skillsObserver = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    skillsRevealed.value = true
+                    skillsObserver.disconnect()
+                }
+            },
+            { threshold: 0.2 }
+        )
+        skillsObserver.observe(skillsSection.value)
+    }
 })
 
 onUnmounted(() => {
     window.removeEventListener('resize', checkMobile)
+    window.removeEventListener('scroll', onScroll)
+    if (skillsObserver) skillsObserver.disconnect()
 })
 </script>
 
 <style scoped>
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.animate-float {
-    animation: float 3s ease-in-out infinite;
-}
-
 .cursor {
     animation: blink 1s infinite;
 }

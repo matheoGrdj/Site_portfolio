@@ -1,5 +1,5 @@
 ﻿<template>
-    <nav class="site-nav fixed w-full top-0 z-50">
+    <nav ref="navRef" class="site-nav fixed w-full top-0 z-50">
         <div class="container mx-auto px-3 sm:px-4 lg:px-6">
             <div class="flex justify-between items-center h-14 sm:h-16">
                 <!-- Logo animé responsive -->
@@ -104,11 +104,31 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { getCurrentTheme, toggleTheme } from '../utils/theme'
 
 const isMenuOpen = ref(false)
 const isDark = ref(getCurrentTheme() === 'dark')
+const navRef = ref(null)
+
+const onScroll = () => {
+    const el = navRef.value
+    if (!el) return
+    const scrollY = window.scrollY
+    const blur = Math.min(8 + scrollY * 0.02, 20)
+    const opacity = Math.min(86 + scrollY * 0.05, 96)
+    el.style.backdropFilter = `blur(${blur}px)`
+    el.style.WebkitBackdropFilter = `blur(${blur}px)`
+    el.style.background = `color-mix(in srgb, var(--bg) ${Math.round(opacity)}%, transparent)`
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', onScroll)
+})
 
 const handleThemeToggle = (event) => {
     const rect = event.currentTarget.getBoundingClientRect()

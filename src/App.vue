@@ -1,7 +1,11 @@
 ﻿<template>
   <div class="app-shell min-h-screen font-sans">
     <Navbar />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition name="page" mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
     <Footer />
     <div class="theme-reveal" aria-hidden="true"></div>
   </div>

@@ -3,6 +3,10 @@
 import { ref, reactive } from 'vue';
 import emailjs from 'emailjs-com';
 import { useHead } from '@unhead/vue';
+import { useCardTilt } from '@/utils/useCardTilt';
+
+const contactGrid = ref(null);
+useCardTilt(contactGrid);
 
 useHead({
   title: 'Me Contacter',
@@ -109,11 +113,8 @@ const handleSubmit = async (e) => {
         <div class="container mx-auto max-w-6xl">
             <!-- En-tête -->
             <div class="section-head" data-reveal>
-                <h1 class="text-5xl lg:text-6xl font-bold mb-6 section-title">
-                    <span
-                        class="bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                        Me Contacter
-                    </span>
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 section-title section-title-shimmer">
+                    Me Contacter
                 </h1>
                 <div class="section-rule"></div>
                 <p class="text-xl text-slate-300 max-w-3xl mx-auto section-lead">
@@ -121,7 +122,7 @@ const handleSubmit = async (e) => {
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12">
+            <div ref="contactGrid" class="grid lg:grid-cols-2 gap-12">
                 <!-- Informations de contact -->
                 <div class="space-y-8">
                     <!-- Coordonnées -->
